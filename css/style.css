@@ -754,105 +754,166 @@
 }
 
 .footer {
-  max-width: 1600px;
+  position: relative;
   width: 100%;
   height: 550px;
-  background-image: url(../assets/img/Background.png);
-  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 1;
+  background: none !important;
 }
-.footer__container {
-  position: absolute;
-  max-width: 770px;
+.footer#vanta-footer {
+  position: relative;
   width: 100%;
-  height: 450px;
-  background-color: #ffffff;
-  top: -20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  height: 550px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #7e5aff 0%, #55b7ff 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease-in-out infinite alternate;
+  transition: background 1s ease-in-out;
+}
+.footer#vanta-footer::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: radial-gradient(ellipse at bottom, rgba(126, 90, 255, 0.4), rgba(85, 183, 255, 0.2), transparent 80%);
+  filter: blur(40px);
+  z-index: 1;
+}
+.footer#vanta-footer > * {
+  position: relative;
+  z-index: 3;
+  color: #fff;
+}
+.footer#vanta-footer .footer__container {
+  max-width: 800px;
+  width: 90%;
+  padding: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  border-radius: 15px;
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 0 25px rgba(126, 90, 255, 0.4), 0 0 50px rgba(85, 183, 255, 0.2);
 }
-.footer__title {
-  font-family: "Montserrat";
+.footer#vanta-footer .footer__title,
+.footer#vanta-footer .footer__links img {
+  animation: neonPulse 3s ease-in-out infinite;
+  transition: all 0.4s ease;
+  z-index: 4;
+}
+.footer#vanta-footer .footer__title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 32px;
+  margin-bottom: 20px;
   font-weight: 700;
-  font-size: 44px;
-  line-height: 100%;
-  color: #2c4058;
-  position: relative;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(126, 90, 255, 0.6), 0 0 20px rgba(126, 90, 255, 0.5), 0 0 30px rgba(85, 183, 255, 0.4);
 }
-.footer__title::before {
+.footer#vanta-footer .footer__title:hover {
+  text-shadow: 0 0 15px rgb(126, 90, 255), 0 0 30px rgba(126, 90, 255, 0.8), 0 0 45px rgba(85, 183, 255, 0.7);
+  transform: scale(1.02);
+}
+.footer#vanta-footer .footer__info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 25px;
+  border-radius: 12px;
+  background: rgba(126, 90, 255, 0.25);
+  box-shadow: 0 0 20px rgba(126, 90, 255, 0.5), 0 0 40px rgba(85, 183, 255, 0.3);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+  max-width: 360px;
+  width: 100%;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+.footer#vanta-footer .footer__info::before {
   content: "";
   position: absolute;
-  top: -20px;
-  left: 50%;
-  width: 100px;
-  height: 1px;
-  transform: translateX(-50%);
-  background-color: #2c4058;
+  inset: 0;
+  border-radius: 12px;
+  padding: 2px;
+  background: linear-gradient(135deg, #7e5aff, #55b7ff, #7e5aff);
+  background-size: 200% 200%;
+  animation: borderFlow 5s linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: 1;
 }
-.footer__content {
-  max-width: 620px;
-  width: 100%;
-  height: 200px;
-  display: flex;
-  justify-content: space-between;
+.footer#vanta-footer .footer__info:hover {
+  background: rgba(126, 90, 255, 0.35);
+  box-shadow: 0 0 30px rgba(126, 90, 255, 0.7), 0 0 50px rgba(85, 183, 255, 0.5);
+  transform: scale(1.02);
 }
-.footer__info {
-  max-width: 300px;
-  width: 100%;
-  height: 200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-.footer__text {
-  font-family: "Montserrat";
-  font-weight: 400;
-  font-size: 18px;
-  color: #2c4058;
-}
-.footer__form {
-  max-width: 300px;
-  width: 100%;
-  height: 200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.footer__text2 {
-  font-family: "Montserrat";
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 100%;
-  color: #ffffff;
-  padding-top: 20px;
-}
-
-input {
-  width: 100%;
-  border: none;
-  border-bottom: 1px solid #2c4058;
-  outline: none;
+.footer#vanta-footer .footer__info .footer__text {
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
+  line-height: 1.5;
+  color: #ffffff;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 0 5px rgba(126, 90, 255, 0.6), 0 0 10px rgba(85, 183, 255, 0.4);
 }
-
-input:focus {
-  border-bottom: 2px solid #7e5aff;
-}
-
-label {
-  font-family: "Montserrat";
-  font-weight: 400;
-  font-size: 15px;
-  color: #4b5562;
+.footer#vanta-footer .footer__info .footer__links {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
   margin-top: 15px;
 }
-
-.fr-button {
-  margin-left: 130px;
+.footer#vanta-footer .footer__info .footer__links img {
+  width: 30px;
+  height: 30px;
+  filter: drop-shadow(0 0 6px rgba(126, 90, 255, 0.6)) drop-shadow(0 0 10px rgba(126, 90, 255, 0.4));
+}
+.footer#vanta-footer .footer__info .footer__links img:hover {
+  transform: scale(1.25);
+  filter: drop-shadow(0 0 15px rgb(126, 90, 255)) drop-shadow(0 0 30px rgba(126, 90, 255, 0.8)) drop-shadow(0 0 45px rgba(85, 183, 255, 0.6));
+}
+.footer#vanta-footer .footer__info .footer__links img:active {
+  transform: scale(0.95);
+  filter: drop-shadow(0 0 15px rgb(85, 183, 255)) drop-shadow(0 0 25px rgba(85, 183, 255, 0.8));
+}
+@keyframes neonPulse {
+  0% {
+    filter: drop-shadow(0 0 6px rgba(126, 90, 255, 0.4)) drop-shadow(0 0 10px rgba(126, 90, 255, 0.3));
+    text-shadow: 0 0 10px rgba(126, 90, 255, 0.5), 0 0 20px rgba(85, 183, 255, 0.3);
+  }
+  50% {
+    filter: drop-shadow(0 0 15px rgb(126, 90, 255)) drop-shadow(0 0 25px rgba(126, 90, 255, 0.8)) drop-shadow(0 0 35px rgba(85, 183, 255, 0.6));
+    text-shadow: 0 0 15px rgb(126, 90, 255), 0 0 30px rgba(126, 90, 255, 0.9), 0 0 45px rgba(85, 183, 255, 0.7);
+  }
+  100% {
+    filter: drop-shadow(0 0 6px rgba(126, 90, 255, 0.4)) drop-shadow(0 0 10px rgba(126, 90, 255, 0.3));
+    text-shadow: 0 0 10px rgba(126, 90, 255, 0.5), 0 0 20px rgba(85, 183, 255, 0.3);
+  }
+}
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+@keyframes borderFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
 }/*# sourceMappingURL=style.css.map */

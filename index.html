@@ -258,50 +258,72 @@
         </iframe>
       </div>
     </main>
-    <footer class="footer">
+    <footer class="footer" id="vanta-footer">
       <div class="footer__container">
         <h2 class="footer__title">GET IN TOUCH</h2>
         <div class="footer__content">
           <div class="footer__info">
-            <p class="footer__text">🌐 95666 Marktredwitz Street 51, Mitterteich, Germany </p>
+            <p class="footer__text">🌐 95666 Marktredwitz Street 51, Mitterteich, Germany</p>
             <p class="footer__text">📱 +49 163-555-1584</p>
             <p class="footer__text">📨 montichello@service.com</p>
             <p class="footer__text">🕘 From 07:05AM to 19:30PM</p>
           </div>
           <div class="footer__info">
-            <form action="#" method="post" id="contactForm" class="footer__form">
+            <form action="#" method="post" class="footer__form">
               <label for="phone">Phone:</label>
-              <input type="tel" id="phone" name="phone" placeholder="" autocomplete="tel" required>
-              <div id="phoneError" class="error"></div>
+              <input type="tel" id="phone" name="phone" required>
               <label for="email">E-mail:</label>
-              <input type="email" id="email" name="email" placeholder="" autocomplete="email" required>
-              <div id="emailError" class="error"></div>
-              <button class="button fr-button" type="submit">SUBMIT</button>
-              <div id="message" class="success"></div>
+              <input type="email" id="email" name="email" required>
+              <button class="button" type="submit">SUBMIT</button>
             </form>
           </div>
         </div>
-      </div>
-      <div class="footer__social">
-        <img src="./assets/svg/Logo.svg" alt="Montichello Logo">
-        <p class="footer__text2">Copyrights © 2020 Montichello</p>
-      </div>
-      <div class="">
-        <a href="https://facebook.com" target="_blank" class="social-link">
-          <img src="./assets/svg/Face.svg" alt="Facebook" class="social-img">
-        </a>
-        <a href="https://twitter.com" target="_blank" class="social-link">
-          <img src="./assets/svg/Twit.svg" alt="Twitter" class="social-img">
-        </a>
-        <a href="https://instagram.com" target="_blank" class="social-link">
-          <img src="./assets/svg/Inst.svg" alt="Instagram" class="social-img">
-        </a>
+        <div class="footer__social">
+          <img src="./assets/svg/Logo.svg" alt="Logo">
+          <p class="footer__text2">Copyrights © 2020 Montichello</p>
+          <div class="footer__links">
+            <a href="https://facebook.com" target="_blank">
+              <img src="./assets/svg/Face.svg" alt="Facebook">
+            </a>
+            <a href="https://twitter.com" target="_blank">
+              <img src="./assets/svg/Twit.svg" alt="Twitter">
+            </a>
+            <a href="https://instagram.com" target="_blank">
+              <img src="./assets/svg/Inst.svg" alt="Instagram">
+            </a>
+          </div>
+        </div>
       </div>
     </footer>
+<!-- Подключаем скрипты -->
     <script src="./js/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="./js/slider.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
     <script src="./js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.waves.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.waves.min.js"></script>
+    <script>
+      VANTA.WAVES({
+        el: "#vanta-footer",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 400.0,
+        minWidth: 200.0,
+        scale: 1.0,
+        scaleMobile: 1.0,
+        backgroundAlpha: 0.0,     // прозрачный фон для видимого градиента
+        color: 0x55b7ff,          // 💙 голубые волны
+        shininess: 120.0,
+        waveHeight: 30.0,
+        waveSpeed: 1.0,
+        zoom: 0.9
+      });
+    </script>
   </body>
 </html>
+
+  
